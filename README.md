@@ -1,6 +1,6 @@
 # Kubernetes Web UI (Dashboard) role
 
-![Basic role syntax check](https://github.com/nemonik/kubernetes-dashboard-role/workflows/Basic%20role%20syntax%20check/badge.svg)
+![Basic role syntax check](https://github.com/nemonik/kubernetes-dashboard/workflows/Basic%20role%20syntax%20check/badge.svg)
 
 An Ansible role for ensuring the configuration of the [Kubernetes Web UI (Dashboard)](https://metallb.universe.tf/).
 
