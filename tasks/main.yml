@@ -20,9 +20,9 @@
 
 - name: load {{ images }} from cache
   include_tasks: retrieve_container_image.yml
+  loop: "{{ images }}"
   when:
     images_cache_path is defined
-  loop: "{{ images }}"
   tags:
     - kubernetes-dashboard
 
@@ -89,6 +89,7 @@
 - name: save {{ images }} to cache
   include_tasks: cache_container_image.yml
   loop: "{{ images }}"
+  when:
     images_cache_path is defined
   tags:
     - kubernetes-dashboard
