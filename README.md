@@ -1,6 +1,6 @@
 # Kubernetes Web UI (Dashboard) role
 
-![](https://github.com/nemonik/metallb-role/workflows/Basic%20role%20syntax%20check/badge.svg)
+![](https://github.com/nemonik/kubernetes-dashboard-role/workflows/Basic%20role%20syntax%20check/badge.svg)
 
 An Ansible role for ensuring the configuration of the [Kubernetes Web UI (Dashboard)](https://metallb.universe.tf/).
 
