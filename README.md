@@ -13,7 +13,7 @@ Requires Kubernetes installed.
 | Variable                     | Required | Default               | Choices             | Comments                                         |
 |------------------------------|----------|-----------------------|---------------------|--------------------------------------------------|
 | kubernetes_dashboard_version | yes      | v2.0.0                | matches release tag | metallb version to install                       |
-| images_cache_path            | no       | /vagrant/cache/images | Path                | Path to folder used to cache saved Docker images |
+| images_cache_path            | no       | not defined           | Path                | Path to folder used to cache saved Docker images |
 
 ## Example Playbook
 
