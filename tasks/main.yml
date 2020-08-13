@@ -78,7 +78,7 @@
     register: token_results
 
   - name: grab kubernetes admin password 
-    shell: cat kubeconfig.yml | grep "password" | cut -d ":" -f 2
+    shell: cat /home/{{ ansible_user_id }}/kubeconfig.yml | grep "password" | cut -d ":" -f 2
     register: admin_password_results
 
   - debug:
