@@ -17,15 +17,28 @@
     images_cache_path is defined
   tags:
     - kubernetes-dashboard
+        
+- name: retrieve {{ images }} images 
+  block:
+  - name: load {{ images }} from cache
+    include_tasks: retrieve_container_image.yml
+    loop: "{{ images }}"
+    when:
+      images_cache_path is defined
 
-- name: load {{ images }} from cache
-  include_tasks: retrieve_container_image.yml
-  loop: "{{ images }}"
-  when:
-    images_cache_path is defined
+  - name: pull {{ images }} container images
+    docker_image:
+      name: "{{ item.repository }}:{{ item.tag }}"
+      source: pull
+      timeout: "{{ docker_timeout }}"
+    retries: "{{ docker_retries }}"
+    delay: "{{ docker_delay }}"
+    register: result
+    until: result is succeeded
+    loop: "{{ images }}"   
   tags:
-    - kubernetes-dashboard
-
+    - kubernetes-dashboard 
+    
 - name: ensure Kubernetes Dashboard is installed and running, when kubernetes_dashboard = 'yes'
   block:
   - name: ensure /home/{{ ansible_user_id }}/kubernetes-dashboard path exists
